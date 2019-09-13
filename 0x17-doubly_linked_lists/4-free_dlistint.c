@@ -1,11 +1,10 @@
 #include "lists.h"
 
 /**
- * add_dnodeint_end - add node at the end
+ * free_dlistint - free all the linked list
  * @head: Head pointer
- * @n: Value to insert in the new node
  *
- * Return: New node or NULL if fails.
+ * Return: Nothing.
  */
 
 void free_dlistint(dlistint_t *head)
