@@ -1,4 +1,4 @@
-B#include "lists.h"
+#include "lists.h"
 /**
  * is_palindrome - check if a linked list is a palindrome.
  * @head: Head pointer
