@@ -20,7 +20,7 @@ int is_palindrome(listint_t **head)
 
 	while (tmp != NULL)
 	{
-		list[nodes] = (*head)->n;
+		list[nodes] = tmp->n;
 		tmp = tmp->next;
 		nodes++;
 	}
