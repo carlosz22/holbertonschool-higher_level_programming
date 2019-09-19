@@ -1,11 +1,6 @@
 #!/usr/bin/python3
-def print_matrix_integer(matrix=[[]]):
-    height = len(matrix)
-    width = len(matrix[0])
-    for i in range(height):
-        j = 0
-        for j in range(width):
-            print("{:d}".format(matrix[i][j]), end='')
-            if j < (width - 1):
-                print(" ", end='')
-        print()
+def square_matrix_simple(matrix=[]):
+    cpy_matrix = matrix[:]
+    for i in range(len(cpy_matrix)):
+        cpy_matrix[i] = list(map(lambda x: x**2, cpy_matrix[i]))
+    return cpy_matrix
