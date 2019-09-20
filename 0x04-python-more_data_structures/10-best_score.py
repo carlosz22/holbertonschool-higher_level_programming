@@ -9,5 +9,5 @@ def best_score(a_dictionary):
             result = key
             first = value
     if first <= 0:
-        return None   
+        return None
     return result
