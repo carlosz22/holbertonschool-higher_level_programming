@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""
+"""A
 """
 
 
@@ -21,14 +21,14 @@ class Square:
 
     @property
     def size(self):
-        """
+        """A
 
         """
         return self.__size
 
     @size.setter
     def size(self, size):
-        """
+        """A
 
         """
         if type(size) is not int:
@@ -40,26 +40,26 @@ class Square:
 
     @property
     def position(self):
-        """
+        """A
         """
         return self.__position
 
     @position.setter
     def position(self, position):
-        """
+        """A
         """
         if type(self.__position) is not tuple and len(self.__position) != 2 and
         self.__position[0] >= 0 and self.__position[1] >= 0:
             raise TypeError('position must be a tuple of 2 positive integers')
 
     def area(self):
-        """
+        """A
 
         """
         return self.__size ** 2
 
     def my_print(self):
-        """
+        """A
         """
         if self.__size == 0:
             print()
