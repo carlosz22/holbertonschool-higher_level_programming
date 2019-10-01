@@ -49,7 +49,7 @@ class Square:
         """A
         """
         if type(self.__position) is not tuple or len(self.__position) != 2 or
-        self.__position[0] >= 0 or self.__position[1] >= 0:
+        self.__position[0] < 0 or self.__position[1] < 0:
             raise TypeError('position must be a tuple of 2 positive integers')
 
     def area(self):
