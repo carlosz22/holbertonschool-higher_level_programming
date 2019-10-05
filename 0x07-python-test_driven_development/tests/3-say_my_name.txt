@@ -1,0 +1,86 @@
+===============================
+ Testing 3-say_my_name.py
+===============================
+
+Testing suite for the function `say_my_name()` that prints the first_name and last_name passed into the function.
+
+Test cases
+=======
+
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+>>> say_my_name(1, "Zuluaga")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(1.0, "Zuluaga")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name([], "Zuluaga")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name({}, "Zuluaga")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(int("4"), "Zuluaga")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(0)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name((0, ), "Zuluaga")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name([[1, 2], [3, 4]], "Zuluaga")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(True, "")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name("Carlos", 1.0)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", [])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", {})
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", [1])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", int("4"))
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", 0)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", (0, ))
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", [[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name("Carlos", "Zuluaga")
+My name is Carlos Zuluaga
+
+>>> say_my_name('Carlos', 'Zuluaga')
+My name is Carlos Zuluaga
+
+>>> say_my_name(str(45), "67")
+My name is 45 67
