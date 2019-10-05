@@ -1,0 +1,59 @@
+===============================
+ Testing 5-text_indentation.py
+===============================
+
+Testing suite for the function `text_indentation()`.
+
+Test cases
+=======
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(True)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(1)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation([])
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation({})
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation((0, ))
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(["hola"])
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation([["hola"]])
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation('This?Is A . TEST:1')
+This?
+<BLANKLINE>
+Is A .
+<BLANKLINE>
+TEST:
+<BLANKLINE>
+1
+
+>>> text_indentation(' :  .   ?yes ')
+:
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+yes
