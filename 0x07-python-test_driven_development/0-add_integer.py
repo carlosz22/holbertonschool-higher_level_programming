@@ -5,6 +5,7 @@ This module contains the following implementation of functions or classes:
 add_integer
 """
 
+
 def add_integer(a, b=98):
     """ Function: `add_integer` - Add two numbers (int or float)
     Args: a: int or float, b: int or float
