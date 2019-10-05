@@ -1,0 +1,63 @@
+===============================
+ Testing 4-print_square.py
+===============================
+
+Testing suite for the function `print_square()` that prints a square of a size passed. The size has to be a positive integer.
+
+Test cases
+=======
+
+>>> print_square = __import__("4-print_square").print_square
+>>> print_square(None)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square([])
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square('?')
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+
+>>> print_square({})
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square([12])
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+>>> print_square((2, 3))
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square(-20)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+>>> print_square(-57387)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+>>> print_square(-13.2342)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square(0)
+
+>>> print_square(1)
+#
+
+>>> print_square(2)
+##
+##
