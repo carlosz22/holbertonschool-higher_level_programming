@@ -11,12 +11,18 @@ def matrix_divided(matrix, div):
     elif div == 0:
         raise ZeroDivisionError('division by zero')
 
-    if len(matrix) == 0:
+    try:
+        if len(matrix) == 0:
+            raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
+    except TypeError:
         raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
 
     new_matrix = []
 
-    size = len(matrix[0])
+    try:
+        size = len(matrix[0])
+    except TypeError:
+        raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
 
     for i in range(len(matrix)):
 
