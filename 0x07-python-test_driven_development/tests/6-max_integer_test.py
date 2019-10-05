@@ -38,3 +38,6 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_no_args(self):
         self.assertEqual(max_integer(), None)
+
+    def test_one_element(self):
+        self.assertEqual(max_integer([9]), 9)
