@@ -1,0 +1,74 @@
+===============================
+ Testing 0-add_integer.py
+===============================
+
+Testing suite for the function `add_integer()` that adds two numbers (int or float) and returns the result as integer.
+
+Test cases
+=======
+
+Importing the module and testing simple integer addition:
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(2, 3)
+5
+
+Float and int:
+>>> add_integer(2.0, 3)
+5
+
+No arguments:
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+List and int:
+>>> add_integer([4], 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+Integer and string:
+>>> add_integer(0, "w")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+Two integers:
+>>> add_integer(3, 5)
+8
+
+Float and int:
+>>> add_integer(3.0, 5)
+8
+
+Int and float:
+>>> add_integer(3, 5.0)
+8
+
+Two floats:
+>>> add_integer(3.0, 5.0)
+8
+
+Negative integers:
+>>> add_integer(-5, -2)
+-7
+
+Negative int and float:
+>>> add_integer(-490, 10.0)
+-480
+
+Negative floats:
+>>> add_integer(-56940.54323, -9759753.8549324242)
+-9816693
+
+Converting string:
+>>> add_integer(float("re"), 50)
+Traceback (most recent call last):
+ValueError: could not convert string to float: 're'
+
+Using empty lists:
+>>> add_integer([], [])
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+Long float:
+>>> add_integer(94.835850938563523840958, 0)
+94
