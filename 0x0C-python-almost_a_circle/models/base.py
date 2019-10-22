@@ -78,8 +78,8 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Save list of objects to a csv file"""
-        if list_objs is not None and len(list_objs) > 0:
-            with open(cls.__name__ + '.csv', 'w', encoding='utf-8') as file:
+        with open(cls.__name__ + '.csv', 'w', encoding='utf-8') as file:
+            if list_objs is not None and len(list_objs) > 0:
                 if cls.__name__ == 'Rectangle':
                     headers = ['id', 'width', 'height', 'x', 'y']
 
@@ -95,17 +95,17 @@ class Base:
                         rec_dictionary['y'] = rec.y
                         r_writer.writerow(rec_dictionary)
 
-                if cls.__name__ == 'Square':
-                    headers = ['id', 'size', 'x', 'y']
-                    s_writer = csv.DictWriter(file, fieldnames=headers)
-                    s_writer.writeheader()
-                    squ_dictionary = {}
-                    for squ in list_objs:
-                        squ_dictionary['id'] = squ.id
-                        squ_dictionary['size'] = squ.size
-                        squ_dictionary['x'] = squ.x
-                        squ_dictionary['y'] = squ.y
-                        s_writer.writerow(squ_dictionary)
+            if cls.__name__ == 'Square':
+                headers = ['id', 'size', 'x', 'y']
+                s_writer = csv.DictWriter(file, fieldnames=headers)
+                s_writer.writeheader()
+                squ_dictionary = {}
+                for squ in list_objs:
+                    squ_dictionary['id'] = squ.id
+                    squ_dictionary['size'] = squ.size
+                    squ_dictionary['x'] = squ.x
+                    squ_dictionary['y'] = squ.y
+                    s_writer.writerow(squ_dictionary)
 
     @classmethod
     def load_from_file_csv(cls):
