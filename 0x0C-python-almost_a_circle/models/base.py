@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """
+Module: base.py
+Creates the Base Class
 """
 import json
 import csv
@@ -7,8 +9,10 @@ import csv
 
 class Base:
     """
+    Base Class
     """
     __nb_objects = 0
+
     def __init__(self, id=None):
         """Constructor"""
         if id is not None:
@@ -19,17 +23,17 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """"""
-        if list_dictionaries is None:
+        """Converts a dictionary or string to json"""
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """"""
-        to_save = []
-        if list_objs is not None:
+        """Save list of objects to a json file"""
+        json_string = []
+        if list_objs is not None or len(list_objs) > 0:
             to_save = []
             for obj in list_objs:
                 to_save.append(cls.to_dictionary(obj))
@@ -41,22 +45,22 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """"""
-        if json_string is None:
+        """Converts json to string"""
+        if json_string is None or len(json_string) == 0:
             return []
         else:
             return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        """"""
+        """Creates a new instance based on a class and a dictionary with attributes"""
         new_instance = cls(1, 1)
         cls.update(new_instance, **dictionary)
         return new_instance
 
     @classmethod
     def load_from_file(cls):
-        """"""
+        """Creates instances based on a list of instances from json file"""
         try:
             list_instances = []
             with open(cls.__name__ + '.json', 'r', encoding='utf-8') as f:
@@ -65,17 +69,16 @@ class Base:
             for dictionary in list_attributes:
                 list_instances.append(cls.create(**dictionary))
             return list_instances
-
         except:
             return list_instances
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """"""
+        """Save list of objects to a csv file"""
         with open(cls.__name__ + '.csv', 'w', encoding='utf-8') as file:
             if cls.__name__ == 'Rectangle':
                 headers = ['id', 'width', 'height', 'x', 'y']
-                
+
                 r_writer = csv.DictWriter(file, fieldnames=headers)
 
                 r_writer.writeheader()
@@ -102,7 +105,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """"""
+        """Creates instances based on a list of instances from csv file"""
         try:
             with open(cls.__name__ + '.csv', 'w', encoding='utf-8') as file:
                 csv_reader = csv.DictReader(file)
@@ -114,7 +117,7 @@ class Base:
                         dictionary['id'] = row['id']
                         dictionary['x'] = row['x']
                         dictionary['y'] = row['y']
-                        if cls.__name__ == 'Rectangle':                        
+                        if cls.__name__ == 'Rectangle':
                             dictionary['width'] = row['width']
                             dictionary['height'] = row['height']
                         elif cls.__name__ == 'Square':
@@ -123,4 +126,4 @@ class Base:
                         line_count += 1
             return list_objects
         except:
-            return []     
+            return []
