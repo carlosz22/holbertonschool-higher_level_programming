@@ -112,8 +112,10 @@ class Base:
     @classmethod
     def draw(cls, list_rectangles, list_squares):
         """Draw the rectangles and squares using Turtle module"""
-        color_list = ['coral', 'cornflowerblue', 'gold', 'lightseagreen', 'lightskyblue',
-                      'lightgrey', 'lightcyan', 'lightcoral', 'mediumaquamarine']
+        color_list = ['coral', 'cornflowerblue', 'gold',
+                      'lightseagreen', 'lightskyblue',
+                      'lightgrey', 'lightcyan', 'lightcoral',
+                      'mediumaquamarine']
         draw = turtle.Turtle()
         color_index = 0
         for r in list_rectangles:
