@@ -147,3 +147,4 @@ class Base:
             draw.end_fill()
             draw.up()
             color_index += 1
+        input()
