@@ -53,7 +53,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Creates a new instance based on a class and a dictionary with attributes"""
+        """Creates a new instance based on a class and a dictionary"""
         new_instance = cls(1, 1)
         cls.update(new_instance, **dictionary)
         return new_instance
