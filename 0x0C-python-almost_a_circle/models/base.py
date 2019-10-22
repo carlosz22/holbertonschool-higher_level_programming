@@ -83,51 +83,27 @@ class Base:
                 if cls.__name__ == 'Rectangle':
                     headers = ['id', 'width', 'height', 'x', 'y']
 
-                    r_writer = csv.DictWriter(file, fieldnames=headers)
+                elif cls.__name__ == 'Square':
+                    headers = ['id', 'size', 'x', 'y']
 
-                    r_writer.writeheader()
-                    rec_dictionary = {}
-                    for rec in list_objs:
-                        rec_dictionary['id'] = rec.id
-                        rec_dictionary['width'] = rec.width
-                        rec_dictionary['height'] = rec.height
-                        rec_dictionary['x'] = rec.x
-                        rec_dictionary['y'] = rec.y
-                        r_writer.writerow(rec_dictionary)
+                writer = csv.DictWriter(file, fieldnames=headers)
 
-            if cls.__name__ == 'Square':
-                headers = ['id', 'size', 'x', 'y']
-                s_writer = csv.DictWriter(file, fieldnames=headers)
-                s_writer.writeheader()
-                squ_dictionary = {}
-                for squ in list_objs:
-                    squ_dictionary['id'] = squ.id
-                    squ_dictionary['size'] = squ.size
-                    squ_dictionary['x'] = squ.x
-                    squ_dictionary['y'] = squ.y
-                    s_writer.writerow(squ_dictionary)
+                writer.writeheader()
+                for obj in list_objs:
+                    obj_dict = obj.to_dictionary()
+                    writer.writerow(obj_dict)
 
     @classmethod
     def load_from_file_csv(cls):
         """Creates instances based on a list of instances from csv file"""
+        list_instances = []
         try:
-            with open(cls.__name__ + '.csv', 'w', encoding='utf-8') as file:
-                csv_reader = csv.DictReader(file)
-                line_count = 0
-                list_objects = []
-                for row in csv_reader:
-                    dictionary = {}
-                    if line_count > 0:
-                        dictionary['id'] = row['id']
-                        dictionary['x'] = row['x']
-                        dictionary['y'] = row['y']
-                        if cls.__name__ == 'Rectangle':
-                            dictionary['width'] = row['width']
-                            dictionary['height'] = row['height']
-                        elif cls.__name__ == 'Square':
-                            dictionary['size'] = row['size']
-                        list_objects.append(cls.create(**dictionary))
-                        line_count += 1
-            return list_objects
+            with open(cls.__name__ + '.csv', encoding='utf-8') as file:
+                reader = csv.DictReader(file, delimiter=',')
+                for row in reader:
+                    for key, value in row.items():
+                        row[key] = int(row[key])
+                    list_instances.append(cls.create(**row))
+                return list_instances
         except:
-            return []
+            return list_instances
