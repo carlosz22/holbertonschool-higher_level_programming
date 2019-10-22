@@ -5,6 +5,7 @@ Creates the Base Class
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -107,3 +108,42 @@ class Base:
                 return list_instances
         except:
             return list_instances
+
+    @classmethod
+    def draw(cls, list_rectangles, list_squares):
+        """Draw the rectangles and squares using Turtle module"""
+        color_list = ['coral', 'cornflowerblue', 'gold', 'lightseagreen', 'lightskyblue',
+                      'lightgrey', 'lightcyan', 'lightcoral', 'mediumaquamarine']
+        draw = turtle.Turtle()
+        color_index = 0
+        for r in list_rectangles:
+            draw.up()
+            draw.begin_fill()
+            draw.setposition(r.x, r.y)
+            draw.down()
+            draw.pencolor(color_list[color_index])
+            draw.fillcolor(color_list[color_index])
+            for i in range(2):
+                draw.down()
+                draw.forward(r.width)
+                draw.left(90)
+                draw.forward(r.height)
+                draw.left(90)
+            draw.end_fill()
+            color_index += 1
+
+        for s in list_squares:
+            draw.up()
+            draw.begin_fill()
+            draw.setposition(s.x, s.y)
+            draw.down()
+            draw.pencolor(color_list[color_index])
+            draw.fillcolor(color_list[color_index])
+            for i in range(3):
+                draw.down()
+                draw.forward(s.size)
+                draw.left(90)
+            draw.forward(s.size)
+            draw.end_fill()
+            draw.up()
+            color_index += 1
