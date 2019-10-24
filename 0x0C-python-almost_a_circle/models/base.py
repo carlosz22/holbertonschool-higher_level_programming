@@ -109,8 +109,8 @@ class Base:
         except:
             return list_instances
 
-    @classmethod
-    def draw(cls, list_rectangles, list_squares):
+    @staticmethod
+    def draw(list_rectangles, list_squares):
         """Draw the rectangles and squares using Turtle module"""
         color_list = ['coral', 'cornflowerblue', 'gold',
                       'lightseagreen', 'lightskyblue',
