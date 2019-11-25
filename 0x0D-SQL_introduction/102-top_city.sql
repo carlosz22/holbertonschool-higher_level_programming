@@ -1,5 +1,5 @@
 -- DIsplays the top 3 cities avg temp during July and August
-SELECT city, AVG(value) AS avg_tmp
+SELECT city, AVG(value) AS avg_temp
 FROM temperatures
 WHERE month BETWEEN 7 AND 8
 GROUP BY city
