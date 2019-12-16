@@ -4,7 +4,6 @@
 if __name__ == "__main__":
     import sys
     import MySQLdb
-    print(len(sys.argv))
 
     if (len(sys.argv) >= 3):
         db = MySQLdb.connect(host='localhost',
