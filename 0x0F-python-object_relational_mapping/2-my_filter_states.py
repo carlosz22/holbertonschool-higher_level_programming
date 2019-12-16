@@ -13,7 +13,8 @@ if __name__ == "__main__":
                              db=sys.argv[3])
         cursor = db.cursor()
         sql = """SELECT * FROM states
-                 WHERE name = '{}' ORDER BY id ASC;""".format(sys.argv[4])
+                 WHERE BINARY name = '{}' ORDER BY id ASC;"""\
+                .format(sys.argv[4])
         cursor.execute(sql)
         rows = cursor.fetchall()
         for row in rows:
