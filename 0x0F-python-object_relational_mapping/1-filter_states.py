@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ Connect to the database and states filter by name """
 
-import sys
-import MySQLdb
-
 if __name__ == "__main__":
-    if (len(sys.argv) == 4):
+    import sys
+    import MySQLdb
+
+    if (len(sys.argv) >= 4):
         db = MySQLdb.connect(host='localhost',
                              port=3306,
                              user=sys.argv[1],
