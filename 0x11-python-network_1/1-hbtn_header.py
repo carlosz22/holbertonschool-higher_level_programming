@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+DIsplays the X-Request-Id header from an HTTP response
 """
 import urllib.request
 import sys
