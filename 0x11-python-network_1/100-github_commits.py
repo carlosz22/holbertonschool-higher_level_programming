@@ -13,7 +13,7 @@ if __name__ == "__main__":
     req = requests.get(url)
     data = req.json()
     i = 0
-    while data[i] and i < 10:
+    while len(data) > i and i < 10:
         print(data[i].get('sha'), end=': ')
         print(data[i].get('commit').get('author').get('name'))
         i += 1
