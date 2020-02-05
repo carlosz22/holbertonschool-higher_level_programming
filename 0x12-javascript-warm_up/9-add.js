@@ -6,7 +6,7 @@ const arg2 = process.argv[3];
 const arg1Parsed = parseInt(arg1);
 const arg2Parsed = parseInt(arg2);
 
-function add(a, b) {
+function add (a, b) {
   console.log(a + b);
 }
 
