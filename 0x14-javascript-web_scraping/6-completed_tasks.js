@@ -10,7 +10,6 @@ request(url, function (err, res, body) {
     const data = JSON.parse(body);
     const userDict = {};
     for (let i = 0; i < data.length; i++) {
-      console.log(i);
       if (userDict[data[i].userId] && data[i].completed) {
         userDict[data[i].userId]++;
       } else if (data[i].completed) {

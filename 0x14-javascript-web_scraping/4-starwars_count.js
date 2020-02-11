@@ -10,6 +10,7 @@ request(url, function (err, res, body) {
     console.log(err);
   } else {
     const data = JSON.parse(body).results;
+
     let countCharacter = 0;
 
     for (let i = 0; i < data.length; i++) {
